@@ -79,7 +79,7 @@ def bbc():
 def nytimes():
     all_output =[]
     start_dt = datetime.date(2019,1,1)
-    end_dt = datetime.date(2019,1,31)
+    end_dt = datetime.date(2019,3,31)
     key = "DjHJJ7AGTOpRARxYh5WEUNIK7ekHC7Ep"
     # NY Times archive pulls by the month
     #For one month - replace {year} and {month}
@@ -89,7 +89,7 @@ def nytimes():
     json_data = r.json() #stores json data in dictionary
     """
     #For 6 months - stored in all_output as a list of lists. To save to output file, do run command > output.log
-    for month in range(1,2):
+    for month in range(1,4):
         url = "https://api.nytimes.com/svc/archive/v1/2019/1.json?api-key="+key
         r = requests.get(url)
         json_data = r.json()
@@ -97,9 +97,12 @@ def nytimes():
         df = pd.json_normalize(json_data['response']['docs'])
         df = df[['pub_date', 'headline.main','keywords','news_desk']]
         df['source'] = ['nytimes']*len(df)
-        print (df)
+        all_output += [df]
+    
+    allDf = pd.concat(all_output, axis = 0).reset_index(drop = True)
+    print (allDf)
         
-    # print(all_output)
+    # alldf.to_csv("nyTimes.txt")
     """
     dates = [(dt.year, dt.month) for dt in rrule (MONTHLY, dtstart = start_dt, until = end_dt)]
     all_output =[]
