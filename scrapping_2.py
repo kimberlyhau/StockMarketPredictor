@@ -14,6 +14,8 @@ from dateutil.rrule import rrule, MONTHLY
 import csv
 import json
 import io
+import scrapy
+from urllib.request import urlopen
 
 def cnn():
     today = date.today()
@@ -95,14 +97,24 @@ def nytimes():
         json_data = r.json()
 
         df = pd.json_normalize(json_data['response']['docs'])
-        df = df[['pub_date', 'headline.main','keywords','news_desk']]
+        df = df[['pub_date', 'headline.main','keywords','news_desk','web_url']]
         df['source'] = ['nytimes']*len(df)
         all_output += [df]
     
     allDf = pd.concat(all_output, axis = 0).reset_index(drop = True)
+    allDf['text'] = [' ']*len(allDf)
+    for i in range(0,len(allDf)):
+        response = urlopen(allDf.iloc[i]['web_url'])
+        content = response.read()
+        soup = BeautifulSoup(content, 'html.parser')
+        allDf.loc[i, 'text'] = soup.get_text()
+        
+    # soup = BeautifulSoup(html_doc, 'html.parser')
+
+    # print(soup.prettify())
     print (allDf)
         
-    # alldf.to_csv("nyTimes.txt")
+    allDf.to_csv("nyTimes.txt")
     """
     dates = [(dt.year, dt.month) for dt in rrule (MONTHLY, dtstart = start_dt, until = end_dt)]
     all_output =[]
