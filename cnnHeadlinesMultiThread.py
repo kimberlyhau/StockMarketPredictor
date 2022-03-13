@@ -31,7 +31,7 @@ def getInfo(next):
             date =  (tempsoup.findAll('meta', itemprop="datePublished")[0])
             date = (date.get('content'))
         except:
-            pass
+            pass 
     
         key = False
         try:

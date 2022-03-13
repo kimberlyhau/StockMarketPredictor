@@ -138,4 +138,4 @@ def cnn():
     masterDf.to_csv("masterCNN.txt")
 
 if __name__ == "__main__":
-    cnn()
+    cnn() 
