@@ -76,44 +76,47 @@ def cnn():
                     
                     #Open the new link, scrape with bs
                     tempResposnse = urlopen(next)
-                    tempcontent = tempResposnse.read().decode("utf-8")
-                    tempsoup = BeautifulSoup(tempcontent, 'html.parser')
+                    try:
+                        tempcontent = tempResposnse.read().decode("utf-8")
+                        tempsoup = BeautifulSoup(tempcontent, 'html.parser')
+                        
+
+                        #check different tags to get the date article was published. 
+
+                        try:    
+                            date =  (tempsoup.findAll('meta', itemprop="datePublished")[0])
+                            date = (date.get('content'))
+                        except:
+                            pass
                     
+                        
+                        try:
+                            if date == None or date == []:
+                                key = True
+                        except:
+                            key = False
+                            date = ''
 
-                    #check different tags to get the date article was published. 
+                        if key == True:
+                            date =  (tempsoup.find('script', type="application/ld+json")) #["datePublished"])
+                            date = json.loads(date.text)
 
-                    try:    
-                        date =  (tempsoup.findAll('meta', itemprop="datePublished")[0])
-                        date = (date.get('content'))
+                            try: 
+                                date = date['datePublished']      
+                            except :
+                                try:
+                                    date = date['uploadDate']
+                                except:
+                                    date = ''
+                                
+                        #store: date, url, headline, base url, article text
+                        dateList += [date]
+                        url += [next]
+                        headline+= [tempsoup.title.string]
+                        currentUrl += [current]
+                        text += [soup.get_text()]
                     except:
                         pass
-                
-                    
-                    try:
-                        if date == None or date == []:
-                            key = True
-                    except:
-                        key = False
-                        date = ''
-
-                    if key == True:
-                        date =  (tempsoup.find('script', type="application/ld+json")) #["datePublished"])
-                        date = json.loads(date.text)
-
-                        try: 
-                            date = date['datePublished']      
-                        except :
-                            try:
-                                date = date['uploadDate']
-                            except:
-                                date = ''
-                            
-                    #store: date, url, headline, base url, article text
-                    dateList += [date]
-                    url += [next]
-                    headline+= [tempsoup.title.string]
-                    currentUrl += [current]
-                    text += [soup.get_text()]
 
         #Make dictionary of data, turn into df, save file, add to master list. 
         df = {'url':url, 'date':dateList, 'headline':headline,'text':text,'currentUrl':currentUrl}
