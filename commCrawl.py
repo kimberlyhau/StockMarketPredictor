@@ -91,7 +91,7 @@ def cnn():
                         except:
                             pass
                         # print('*8')
-                        
+                        key = False
                         try:
                             if date == None or date == []:
                                 key = True
