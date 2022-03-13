@@ -80,14 +80,23 @@ def cnn():
                     tempsoup = BeautifulSoup(tempcontent, 'html.parser')
                     
 
-                    #check different tags to get the date article was published.     
-                    try: 
+                    #check different tags to get the date article was published. 
+
+                    try:    
                         date =  (tempsoup.findAll('meta', itemprop="datePublished")[0])
                         date = (date.get('content'))
                     except:
                         pass
+                
+                    
+                    try:
+                        if date == None or date == []:
+                            key = True
+                    except:
+                        key = False
+                        date = ''
 
-                    if date == None or date == []:
+                    if key == True:
                         date =  (tempsoup.find('script', type="application/ld+json")) #["datePublished"])
                         date = json.loads(date.text)
 
@@ -117,3 +126,6 @@ def cnn():
     #combine all CNN data, write to text file
     masterDf = pd.concate(masterDf, axis = 1)
     masterDf.to_csv("masterCNN.txt")
+
+if __name__ == "__main__":
+    cnn()
