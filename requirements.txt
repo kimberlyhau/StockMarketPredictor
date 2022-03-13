@@ -1,4 +1,6 @@
+bs4>=0.0.1
 Datetime>= 4.4
 numpy>=1.22.2
 pandas>=1.4.0
+requests>=2.27.1
 
