@@ -75,8 +75,9 @@ def cnn():
                 if "https://www.cnn.com/" in next:
                     
                     #Open the new link, scrape with bs
-                    tempResposnse = urlopen(next)
+                    
                     try:
+                        tempResposnse = urlopen(next)
                         tempcontent = tempResposnse.read().decode("utf-8")
                         tempsoup = BeautifulSoup(tempcontent, 'html.parser')
                         
@@ -114,7 +115,7 @@ def cnn():
                         url += [next]
                         headline+= [tempsoup.title.string]
                         currentUrl += [current]
-                        text += [soup.get_text()]
+                        text += [tempsoup.get_text()]
                     except:
                         pass
 
