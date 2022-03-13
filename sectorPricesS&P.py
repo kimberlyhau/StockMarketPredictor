@@ -26,4 +26,4 @@ df = df.iloc[index[0]:]
 df  = df.set_index(['Effective date '], drop = True)
 
 #save data to text file
-df.to_csv("ECE324 Interim Report/Excel Files/SP500Data.txt")
+df.to_csv("ECE324 Interim Report/Excel Files/SP500Data.txt") 
