@@ -10,12 +10,12 @@ import requests
 # websites= ["https://www.msn.com/en-ca/news/", "https://www.cnn.com/","https://www.nytimes.com/", "https://www.foxnews.com/","https://news.google.com/topstories?hl=en-CA&gl=CA&ceid=CA:en/"]
 
 
-
 def cnn():
 
     #archive dates
-    #'2020-1.html',
-    dates = ['2020-2.html',
+    #
+    dates = ['2020-1.html',
+            '2020-2.html',
             '2020-3.html',
             '2020-4.html',
             '2020-5.html',
@@ -78,7 +78,7 @@ def cnn():
                     
                     try:
                         tempResposnse = urlopen(next)
-                        print (next)
+                        # print (next)
                         tempcontent = tempResposnse.read().decode("utf-8")
                         tempsoup = BeautifulSoup(tempcontent, 'html.parser')
                         # print('*')
