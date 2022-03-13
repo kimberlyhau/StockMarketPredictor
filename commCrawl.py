@@ -14,8 +14,8 @@ import requests
 def cnn():
 
     #archive dates
-    dates = ['2020-1.html',
-            '2020-2.html',
+    #'2020-1.html',
+    dates = ['2020-2.html',
             '2020-3.html',
             '2020-4.html',
             '2020-5.html',
@@ -78,9 +78,10 @@ def cnn():
                     
                     try:
                         tempResposnse = urlopen(next)
+                        print (next)
                         tempcontent = tempResposnse.read().decode("utf-8")
                         tempsoup = BeautifulSoup(tempcontent, 'html.parser')
-                        
+                        # print('*')
 
                         #check different tags to get the date article was published. 
 
@@ -89,17 +90,19 @@ def cnn():
                             date = (date.get('content'))
                         except:
                             pass
-                    
+                        # print('*8')
                         
                         try:
                             if date == None or date == []:
                                 key = True
                         except:
                             key = False
-                            date = ''
-
+                            
+                        # print('**')
+                        # print (date)
                         if key == True:
                             date =  (tempsoup.find('script', type="application/ld+json")) #["datePublished"])
+                            print(date)
                             date = json.loads(date.text)
 
                             try: 
@@ -109,13 +112,16 @@ def cnn():
                                     date = date['uploadDate']
                                 except:
                                     date = ''
-                                
+                        # print('***')       
                         #store: date, url, headline, base url, article text
+             
                         dateList += [date]
                         url += [next]
                         headline+= [tempsoup.title.string]
                         currentUrl += [current]
+                        # print (url)
                         text += [tempsoup.get_text()]
+                     
                     except:
                         pass
 
