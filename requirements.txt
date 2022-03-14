@@ -1,9 +1,10 @@
 bs4>=0.0.1
 datetime>= 4.4
+matplotlib>=3.4.3
 numpy>=1.22.2
+nltk >= 3.7
 pandas>=1.4.0
 requests>=2.27.1
-nltk >= 3.7
 sklearn>=1.0.2
-numpy>=1.21.2
-matplotlib>=3.4.3
+
+
