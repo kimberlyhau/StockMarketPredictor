@@ -8,3 +8,4 @@ ECE324 Project: Using Sentiment Analysis of COVID-19 Headlines to Predict Stock 
 ###### cnnHeadlinesMultiThread.py - code for gathering CNN article data from CNN archives using multi threading. 
 ###### sectorPricesS&P.py - code for gathering S&P market closing prices.
 ###### yfinanceS&PPrices.py  - code for gathering S&P market closing prices using yfinance library.
+###### requirements.txt - list of required python libraries and versions to run these programs. 
