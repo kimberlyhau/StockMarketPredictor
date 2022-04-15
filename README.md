@@ -19,3 +19,5 @@ ECE324 Project: Using Sentiment Analysis of COVID-19 Headlines to Predict Stock 
 ###### 10. VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of CNN headlines, as well as text pre-processing.
 ###### 11. NYTimes_VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of NY Times headlines, as well as text pre-processing.
 ###### 12. LSTMPredictor.ipynb: Template for LSTM model, first iteration of neural network used for stock predictions.
+###### 13. LSTMPredictor.ipynb: Second attempt of LSTM model for stock prediction. 
+###### 14. Final_LSTM_Model_Predictor.ipynb: Final version of the LSTM model used for stock prediction. Contains training loop and final results. 
