@@ -16,3 +16,5 @@ ECE324 Project: Using Sentiment Analysis of COVID-19 Headlines to Predict Stock 
 ###### 7. BERTSentimentAnalysis.py: BERT model for sentiment analysis of headlines, as well as text pre-processing. 
 ###### 8. requirements.txt: List of required python libraries and versions to run these programs. 
 ###### 9. output.log.zip: Test raw NY Times output file. Unable to send file due to size over email. Uploded data to share. 
+###### 10. VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of CNN headlines, as well as text pre-processing.
+###### 11. NYTimes_VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of NY Times headlines, as well as text pre-processing.
