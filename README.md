@@ -13,6 +13,6 @@ ECE324 Project: Using Sentiment Analysis of COVID-19 Headlines to Predict Stock 
 ###### 4. nyTimesHeadlinesAPI.py: Contains code for gathering NY Times article data using an API key, as well as organizing the data into a Pandas dataframe.
 ###### 5. cnnHeadlines.py: Code for gathering CNN article data from the CNN archives.
 ###### 6. cnnHeadlinesMultiThread.py: Code for gathering CNN article data from CNN archives using multi threading. 
-###### 7. BERTSentimentAnalysis.py: BERT model for sentiment analysis of headlines, as well as text pre-processing. 
+###### 7. VadarSentimentAnalysis.py: BERT model for sentiment analysis of headlines, as well as text pre-processing. 
 ###### 8. requirements.txt: List of required python libraries and versions to run these programs. 
 ###### 9. output.log.zip: Test raw NY Times output file. Unable to send file due to size over email. Uploded data to share. 
