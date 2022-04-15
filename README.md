@@ -16,8 +16,9 @@ ECE324 Project: Using Sentiment Analysis of COVID-19 Headlines to Predict Stock 
 ###### 7. BERTSentimentAnalysis.py: BERT model for sentiment analysis of headlines, as well as text pre-processing. 
 ###### 8. requirements.txt: List of required python libraries and versions to run these programs. 
 ###### 9. output.log.zip: Test raw NY Times output file. Unable to send file due to size over email. Uploded data to share. 
-###### 10. VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of CNN headlines, as well as text pre-processing.
-###### 11. NYTimes_VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of NY Times headlines, as well as text pre-processing.
-###### 12. LSTMPredictor.ipynb: Template for LSTM model, first iteration of neural network used for stock predictions.
-###### 13. LSTM_Predictor.ipynb: Second attempt of LSTM model for stock prediction. 
-###### 14. Final_LSTM_Model_Predictor.ipynb: Final version of the LSTM model used for stock prediction. Contains training loop and final results. 
+###### 10. VaderModel_SentimentAnalysis.ipynb: First version of Vader Model for sentiment analysis of CNN headlines, as well as text pre-processing.
+###### 11. StockMarketPredictor_VaderModel.ipynb: Final version of Vader Model for sentiment analysis of CNN headlines, as well as text pre-processing.
+###### 12 NYTimes_VaderModel_SentimentAnalysis.ipynb: Vader Model for sentiment analysis of NY Times headlines, as well as text pre-processing.
+###### 13 LSTMPredictor.ipynb: Template for LSTM model, first iteration of neural network used for stock predictions.
+###### 14 LSTM_Predictor.ipynb: Second attempt of LSTM model for stock prediction. 
+###### 15 Final_LSTM_Model_Predictor.ipynb: Final version of the LSTM model used for stock prediction. Contains training loop and final results. 
